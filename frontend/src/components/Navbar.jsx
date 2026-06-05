@@ -72,7 +72,7 @@ export default function Navbar() {
       <Link to="/" className="brand">HeisenLink</Link>
 
       {/* Search pill */}
-      <div className="search-pill-wrap" ref={searchRef}>
+      <div className="search-pill-wrap desktop-only" ref={searchRef}>
         <div className={`search-pill ${searchFocus ? "focused" : ""}`}>
           <Search size={17} />
           <input
@@ -133,6 +133,16 @@ export default function Navbar() {
 
       {/* Nav actions */}
       <nav className="nav-actions">
+        {/* Mobile Search */}
+        <NavLink
+          to="/search"
+          className={({ isActive }) => `icon-button nav-tooltip-wrap mobile-only${isActive ? " active-nav" : ""}`}
+          title="Search"
+        >
+          <Search size={18} />
+          <span className="nav-tooltip">Search</span>
+        </NavLink>
+
         {/* Explore — always visible */}
         <NavLink
           to="/explore"

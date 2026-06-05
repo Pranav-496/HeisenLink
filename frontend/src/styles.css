@@ -4257,3 +4257,73 @@ h4.md-heading {
   flex-direction: column;
   gap: 16px;
 }
+
+/* ═══════════════════════════════════════════
+   GLOBAL MOBILE RESPONSIVENESS
+═══════════════════════════════════════════ */
+
+.mobile-only {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  /* Topbar / Navbar */
+  .topbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10px;
+  }
+  .brand {
+    font-size: 26px;
+    padding-left: 5px;
+  }
+  .search-pill.desktop-only {
+    display: none;
+  }
+  .mobile-only {
+    display: inline-grid;
+  }
+  .nav-actions {
+    padding-right: 0;
+  }
+  .app-button, .login-pill {
+    padding: 0 14px;
+    font-size: 14px;
+    height: 40px;
+  }
+
+  /* Main Layout */
+  .layout {
+    grid-template-columns: 1fr;
+  }
+  .sidebar {
+    display: none; /* Hide right sidebar on mobile */
+  }
+  .shell, .narrow {
+    width: 100%;
+    padding: 0 10px;
+    margin: 10px auto;
+  }
+
+  /* Panels & Cards */
+  .panel {
+    padding: 12px;
+  }
+  .post-card-wrapper {
+    margin-bottom: 10px;
+  }
+
+  /* Chat Page Mobile */
+  .chat-page.chat-active .chat-sidebar {
+    display: none;
+  }
+  .chat-page:not(.chat-active) .chat-main {
+    display: none;
+  }
+
+  /* Prevent overflow */
+  img, video {
+    max-width: 100%;
+    height: auto;
+  }
+}

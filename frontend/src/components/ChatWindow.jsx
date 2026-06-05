@@ -9,7 +9,7 @@ import api from "../api/client.js";
 const EMOJI_LIST = ["👍", "❤️", "😂", "😮", "😢", "🔥", "🎉", "👏"];
 const WS_BASE = import.meta.env.VITE_WS_URL || "ws://localhost:8000";
 
-export default function ChatWindow({ conversationId, currentUser, conversationMeta, onMessageSent }) {
+export default function ChatWindow({ conversationId, currentUser, conversationMeta, onMessageSent, onBack }) {
   const [messages, setMessages]     = useState([]);
   const [loading, setLoading]       = useState(true);
   const [body, setBody]             = useState("");
@@ -201,6 +201,11 @@ export default function ChatWindow({ conversationId, currentUser, conversationMe
 
       {/* Header */}
       <div className="chat-win-header">
+        {onBack && (
+          <button className="icon-button mobile-only" onClick={onBack} style={{ marginRight: 8 }}>
+            <CornerDownLeft size={18} />
+          </button>
+        )}
         {otherUser ? (
           <Link to={`/users/${otherUser.id}`} style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: 12, flex: 1 }}>
             <WinAvatar name={convName} isGroup={conversationMeta?.is_group} />

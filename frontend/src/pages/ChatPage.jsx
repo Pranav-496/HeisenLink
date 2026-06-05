@@ -62,7 +62,7 @@ export default function ChatPage() {
   if (!user) return <main className="shell"><div className="panel">Please log in to use messages.</div></main>;
 
   return (
-    <main className="chat-page">
+    <main className={`chat-page ${activeId ? "chat-active" : ""}`}>
       {/* ── Sidebar ── */}
       <aside className="chat-sidebar">
         <div className="chat-sidebar-head">
@@ -135,6 +135,7 @@ export default function ChatPage() {
             currentUser={user}
             conversationMeta={activeConv}
             onMessageSent={() => bumpConversation(activeId)}
+            onBack={() => { setActiveId(null); navigate("/messages", { replace: true }); }}
           />
         ) : (
           <div className="chat-welcome">
