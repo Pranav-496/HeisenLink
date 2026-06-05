@@ -112,7 +112,8 @@ class PostListCreateView(generics.ListCreateAPIView):
 
 
 class PostDetailView(generics.RetrieveUpdateDestroyAPIView):
-    queryset = post_queryset()
+    def get_queryset(self):
+        return post_queryset()
     serializer_class = PostDetailSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly, IsAuthorOrReadOnly]
     parser_classes = [JSONParser, FormParser, MultiPartParser]
