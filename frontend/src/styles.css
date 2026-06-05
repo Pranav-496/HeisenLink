@@ -1,3 +1,5 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css");
+
 :root {
   color-scheme: dark;
   --bg: #0f1314;
@@ -3118,9 +3120,7 @@ h4.md-heading {
   color: #7a9aa0 !important;
 }
 
-/* highlight.js import */
-@import url("https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css");
-
+  /* highlight.js styling moved to top */
 /* ═══════════════════════════════════════════
    HASHTAG CHIPS (PostCard)
 ═══════════════════════════════════════════ */
