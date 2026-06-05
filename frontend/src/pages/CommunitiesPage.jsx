@@ -94,13 +94,13 @@ export default function CommunitiesPage() {
       ) : (
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))", gap: "16px" }}>
           {communities.map((community) => (
-            <div key={community.id} className="panel" style={{ padding: "20px", display: "flex", flexDirection: "column", gap: "12px", transition: "transform 0.2s", cursor: "pointer" }} onMouseEnter={e => e.currentTarget.style.transform = "translateY(-2px)"} onMouseLeave={e => e.currentTarget.style.transform = "none"}>
+            <Link key={community.id} to={`/c/${community.slug}`} className="panel" style={{ padding: "20px", display: "flex", flexDirection: "column", gap: "12px", transition: "transform 0.2s", cursor: "pointer", textDecoration: "none", color: "inherit" }} onMouseEnter={e => e.currentTarget.style.transform = "translateY(-2px)"} onMouseLeave={e => e.currentTarget.style.transform = "none"}>
               <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
                 <div style={{ width: "48px", height: "48px", borderRadius: "12px", background: "#262626", display: "flex", alignItems: "center", justifyContent: "center", color: "#a0a0a0" }}>
                   <Hash size={24} />
                 </div>
                 <div>
-                  <h3 style={{ margin: 0, fontSize: "16px", fontWeight: "600" }}>{community.name}</h3>
+                  <h3 style={{ margin: 0, fontSize: "16px", fontWeight: "600", color: "white" }}>{community.name}</h3>
                   <span className="muted" style={{ fontSize: "13px" }}>c/{community.slug}</span>
                 </div>
               </div>
@@ -109,7 +109,7 @@ export default function CommunitiesPage() {
                 <span>{community.posts_count || 0} posts</span>
                 <span>Created by @{community.creator_username}</span>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       )}

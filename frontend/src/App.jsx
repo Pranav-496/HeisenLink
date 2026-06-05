@@ -5,6 +5,7 @@ import { useAuth } from "./context/AuthContext.jsx";
 import BookmarksPage from "./pages/BookmarksPage.jsx";
 import ChatPage from "./pages/ChatPage.jsx";
 import CommunitiesPage from "./pages/CommunitiesPage.jsx";
+import CommunityPage from "./pages/CommunityPage.jsx";
 import ExplorePage from "./pages/ExplorePage.jsx";
 import ForgotPasswordPage from "./pages/ForgotPasswordPage.jsx";
 import HashtagPage from "./pages/HashtagPage.jsx";
@@ -43,6 +44,7 @@ export default function App() {
         {/* Discovery */}
         <Route path="/explore" element={<ExplorePage />} />
         <Route path="/communities" element={<CommunitiesPage />} />
+        <Route path="/c/:slug" element={<CommunityPage />} />
         <Route path="/hashtag/:tag" element={<HashtagPage />} />
 
         {/* Auth-required */}
@@ -51,6 +53,9 @@ export default function App() {
         <Route path="/messages" element={<RequireAuth><ChatPage /></RequireAuth>} />
         <Route path="/messages/:id" element={<RequireAuth><ChatPage /></RequireAuth>} />
         <Route path="/me" element={<RequireAuth><Profile mine /></RequireAuth>} />
+
+        {/* 404 Fallback */}
+        <Route path="*" element={<main className="shell"><div className="panel" style={{ textAlign: "center", padding: "40px" }}><h2>Page Not Found</h2><p className="muted">The page you're looking for doesn't exist.</p></div></main>} />
       </Routes>
     </>
   );
