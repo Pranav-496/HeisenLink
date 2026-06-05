@@ -128,3 +128,4 @@ WS   /ws/notifications/?token={access_token}
 - PostgreSQL is preferred through `DATABASE_URL`; if no `DATABASE_URL` is present, Django falls back to SQLite for quick local experiments.
 - Redis powers Channels. Keep the Redis container running for live notifications.
 - JWT tokens are handled by Axios interceptors and refreshed automatically when possible.
+
