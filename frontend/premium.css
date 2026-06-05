@@ -847,3 +847,18 @@ button.reaction-pill.active .count {
   border: 2px solid var(--bg-surface);
   box-shadow: 0 0 6px rgba(76, 175, 80, 0.5);
 }
+
+/* ═══════════════════════════════════════════
+   PREMIUM MOBILE RESPONSIVENESS
+═══════════════════════════════════════════ */
+@media (max-width: 900px) {
+  .form-row-2 {
+    grid-template-columns: 1fr !important;
+  }
+  .modal-content {
+    width: calc(100vw - 20px) !important;
+    max-width: 100vw;
+    box-sizing: border-box;
+    padding: 16px !important;
+  }
+}

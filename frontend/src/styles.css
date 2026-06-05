@@ -4267,6 +4267,19 @@ h4.md-heading {
 }
 
 @media (max-width: 900px) {
+  /* Prevent horizontal scrolling universally */
+  body, html {
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+  
+  .desktop-only {
+    display: none !important;
+  }
+  .mobile-only {
+    display: inline-grid;
+  }
+
   /* Topbar / Navbar */
   .topbar {
     display: flex;
@@ -4277,12 +4290,6 @@ h4.md-heading {
     font-size: 26px;
     padding-left: 5px;
   }
-  .search-pill.desktop-only {
-    display: none;
-  }
-  .mobile-only {
-    display: inline-grid;
-  }
   .nav-actions {
     padding-right: 0;
   }
@@ -4292,17 +4299,28 @@ h4.md-heading {
     height: 40px;
   }
 
-  /* Main Layout */
-  .layout {
-    grid-template-columns: 1fr;
+  /* Main Layout & Forms */
+  .layout, .explore-body, .chat-page {
+    grid-template-columns: 1fr !important;
   }
-  .sidebar {
-    display: none; /* Hide right sidebar on mobile */
+  
+  .sidebar, .explore-sidebar {
+    display: none !important; 
   }
+  
   .shell, .narrow {
     width: 100%;
+    max-width: 100vw;
     padding: 0 10px;
     margin: 10px auto;
+    box-sizing: border-box;
+  }
+
+  .auth-card {
+    width: 100%;
+    max-width: 100vw;
+    box-sizing: border-box;
+    padding: 20px 15px;
   }
 
   /* Panels & Cards */
@@ -4314,16 +4332,20 @@ h4.md-heading {
   }
 
   /* Chat Page Mobile */
+  .chat-page {
+    border: none;
+    height: calc(100vh - 72px);
+  }
   .chat-page.chat-active .chat-sidebar {
-    display: none;
+    display: none !important;
   }
   .chat-page:not(.chat-active) .chat-main {
-    display: none;
+    display: none !important;
   }
 
   /* Prevent overflow */
-  img, video {
+  img, video, input, textarea {
     max-width: 100%;
-    height: auto;
+    box-sizing: border-box;
   }
 }
